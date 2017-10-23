@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Web.Models.DanhMuc>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<div class="row">
+@foreach (var laptop in Model)
+{
+    <div class="col-sm-4 col-lg-4 col-md-4">
+        <div class="thumbnail">
+            <a href="@Url.Action("Detail","LaptopStore", new { id = laptop.ID})">
+                <img alt="@laptop.TenSanPham" src="@laptop.Image" width="200" />
+
+                <div>
+                    <br />
+                    <h4 style="text-align: left">
+                        @laptop.TenSanPham
+                    </h4>
+                    <p></p>
+                </div>
+            </a>
+        </div>
+    </div>     
+}
+

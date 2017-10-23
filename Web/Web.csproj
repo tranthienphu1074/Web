@@ -52,6 +52,7 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -190,12 +191,21 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LaptopStoreController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\NguoiDungController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\dbQLBanLaptop.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dbQLBanLaptop.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Giohang.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -204,6 +214,30 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\ddlevelsmenu-base.css" />
+    <Content Include="Content\ddlevelsmenu-mobile.css" />
+    <Content Include="Content\ddlevelsmenu-sidebar.css" />
+    <Content Include="Content\ddlevelsmenu-topbar.css" />
+    <Content Include="Content\giohang.gif" />
+    <Content Include="Content\Images\arrow-down.gif" />
+    <Content Include="Content\Images\arrow-right.gif" />
+    <Content Include="Content\Images\bg-content-bottom.jpg" />
+    <Content Include="Content\Images\bg-menu.jpg" />
+    <Content Include="Content\Images\bulletlist.gif" />
+    <Content Include="Content\Images\left.gif" />
+    <Content Include="Content\Images\Products\Acer1.png" />
+    <Content Include="Content\Images\Products\Acer2.jpg" />
+    <Content Include="Content\Images\Products\Acer3.png" />
+    <Content Include="Content\Images\Products\Asus1.jpg" />
+    <Content Include="Content\Images\Products\Asus2.jpg" />
+    <Content Include="Content\Images\Products\Asus3.jpg" />
+    <Content Include="Content\Images\Products\Dell1.png" />
+    <Content Include="Content\Images\Products\Dell2.png" />
+    <Content Include="Content\Images\Products\Dell3.jpg" />
+    <Content Include="Content\Images\Products\Mac1.jpg" />
+    <Content Include="Content\Images\Products\Mac2.jpg" />
+    <Content Include="Content\Images\Products\Mac3.jpg" />
+    <Content Include="Content\Style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -212,6 +246,11 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\dbQLBanLaptop.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>dbQLBanLaptop.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -258,6 +297,17 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_LayoutUser.cshtml" />
+    <Content Include="Views\LaptopStore\Index.cshtml" />
+    <Content Include="Views\LaptopStore\ACER.cshtml" />
+    <Content Include="Views\LaptopStore\ASUS.cshtml" />
+    <Content Include="Views\LaptopStore\DELL.cshtml" />
+    <Content Include="Views\LaptopStore\MAC.cshtml" />
+    <Content Include="Views\LaptopStore\Detail.cshtml" />
+    <Content Include="Views\NguoiDung\DangKy.cshtml" />
+    <Content Include="Views\NguoiDung\DangNhap.cshtml" />
+    <Content Include="Views\GioHang\GioHang.cshtml" />
+    <Content Include="Views\GioHang\GiohangPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -274,6 +324,14 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Models\dbQLBanLaptop.dbml.layout">
+      <DependentUpon>dbQLBanLaptop.dbml</DependentUpon>
+    </None>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
