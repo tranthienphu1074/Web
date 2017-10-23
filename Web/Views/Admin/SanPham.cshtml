@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Web.Models.DanhMuc>
+
+@{
+    ViewBag.Title = "SanPham";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Quản lý thông tin sản phẩm</h2>
+
+<p>
+    @Html.ActionLink("Thêm mới", "Them")
+</p>
+<table class="table" border="1">
+    <tr>
+        <th style="width: 200px">
+            Tên sản phẩm
+        </th>
+        <th style="width: 200px">
+            Giá tiền
+        </th>
+        <th style="width: 200px">
+            Hãng
+        </th>
+        <th style="width: 200px">
+            Hình ảnh
+        </th>
+        <th style="width: 200px">
+            Mô tả
+        </th>
+        <th style="width: 200px">
+            Ngày cập nhật
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenSanPham)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GiaTien)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hang)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Image)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayCapNhat)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "SuaSach", new { id=item.ID }) |
+            @Html.ActionLink("Chi tiết", "ChiTiet", new { id=item.ID }) |
+            @Html.ActionLink("Xóa", "Xoa", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

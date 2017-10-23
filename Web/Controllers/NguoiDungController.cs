@@ -72,18 +72,25 @@ namespace Web.Controllers
                 tk.NgaySinh = DateTime.Parse(ngaysinh);
                 db.TaiKhoans.InsertOnSubmit(tk);
                 db.SubmitChanges();
-                return RedirectToAction("Dangnhap");
+                return RedirectToAction("DangNhap");
             }
             return this.DangKy();
         }
 
+        [HttpGet]
+        public ActionResult Dangnhap()
+        {
+            return View();
+        }
+
+        [HttpPost]
         public ActionResult DangNhap(FormCollection collection)
         {
             var tendn = collection["TenDN"];
             var matkhau = collection["MatKhau"];
             if(String.IsNullOrEmpty(tendn))
             {
-                ViewData["Loi1"] = "Phải nhập tên đăng nhập";
+                ViewData["Loi1"] = "";
             }
             else if(String.IsNullOrEmpty(matkhau))
             {
@@ -94,8 +101,9 @@ namespace Web.Controllers
                 TaiKhoan tk = db.TaiKhoans.SingleOrDefault(n => n.TaiKhoan1 == tendn && n.MatKhau == matkhau);
                 if (tk != null)
                 {
-                    ViewBag.ThongBao = "Đăng nhập thành công";
-                    Session["TaiKhoan"] = tk;
+                    //ViewBag.ThongBao = "Đăng nhập thành công";
+                    Session["Taikhoan"] = tk;
+                    return RedirectToAction("Index", "LaptopStore");
                 }
                 else
                     ViewBag.ThongBao = "Tên đăng nhập hoặc mật khẩu không đúng";

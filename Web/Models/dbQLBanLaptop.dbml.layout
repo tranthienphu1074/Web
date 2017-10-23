@@ -20,7 +20,7 @@
         <elementListCompartment Id="d8ef00ac-bc6a-4da8-ade3-0a41e04bd78f" absoluteBounds="4.89, 3.46, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(4.875 : 3.91909912109375); (3 : 3.91909912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(4.875 : 4.39349609375); (3 : 4.39349609375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/dbQLBanLaptopDataContext/TaiKhoan/TaiKhoan_DonDatHang" />
       <nodes>
         <classShapeMoniker Id="2b28f260-95e2-467b-a3b5-413f9e5a1f1c" />
@@ -47,5 +47,11 @@
         <classShapeMoniker Id="6974401c-7105-4e00-933c-f22f12fe7573" />
       </nodes>
     </associationConnector>
+    <classShape Id="52250132-5dc4-45a5-994c-c1d559141880" absoluteBounds="2.875, 2.125, 2, 1.3862939453125">
+      <DataClassMoniker Name="/dbQLBanLaptopDataContext/Admin" />
+      <nestedChildShapes>
+        <elementListCompartment Id="46025bdb-5aa3-4c25-b864-c143bd29845e" absoluteBounds="2.89, 2.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

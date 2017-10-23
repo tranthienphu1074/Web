@@ -139,5 +139,59 @@ namespace Web.Controllers
             lstGiohang.Clear();
             return RedirectToAction("Index", "LaptopStore");
         }
+
+        //Hien thi View DatHang de cap nhat cac thong tin cho Don hang
+        [HttpGet]
+        public ActionResult DatHang()
+        {
+            if (Session["Taikhoan"] == null || Session["Taikhoan"].ToString() == "")
+            {
+                return RedirectToAction("Dangnhap", "Nguoidung");
+            }
+            if (Session["Giohang"] == null)
+            {
+                return RedirectToAction("Index", "LaptopStore");
+            }
+            //Lay gio hang tu Session
+            List<Giohang> lstGiohang = Laygiohang();
+            ViewBag.Tongsoluong = TongSoLuong();
+            ViewBag.Tongtien = TongTien();
+            return View(lstGiohang);
+        }
+
+        //Xay dung chuc nang Dathang
+        [HttpPost]
+        public ActionResult DatHang(FormCollection collection)
+        {
+            //Them Don hang
+            DonDatHang ddh = new DonDatHang();
+            TaiKhoan tk = (TaiKhoan)Session["Taikhoan"];
+            List<Giohang> gh = Laygiohang();
+            ddh.MaKH = tk.MaKH;
+            ddh.NgayDat = DateTime.Now;
+            var ngaygiao = String.Format("{0:MM/dd/yyyy}", collection["NgayGiao"]);
+            ddh.NgayGiao = DateTime.Parse(ngaygiao);
+            ddh.TinhTrangGiaoHang = false;
+            ddh.DaThanhToan = false;
+            data.DonDatHangs.InsertOnSubmit(ddh);
+            data.SubmitChanges();
+            //Them chi tiet don hang            
+            foreach (var item in gh)
+            {
+                ChiTietDonHang ctdh = new ChiTietDonHang();
+                ctdh.MaDonHang = ddh.MaDonHang;
+                ctdh.ID = item.iMasanpham;
+                ctdh.SoLuong = item.iSoluong;
+                ctdh.DonGia = (decimal)item.iDongia;
+                data.ChiTietDonHangs.InsertOnSubmit(ctdh);
+            }
+            data.SubmitChanges();
+            Session["Giohang"] = null;
+            return RedirectToAction("Xacnhandonhang", "Giohang");
+        }
+        public ActionResult Xacnhandonhang()
+        {
+            return View();
+        }
     }
 }
