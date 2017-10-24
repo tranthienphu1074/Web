@@ -45,7 +45,7 @@
             @Html.DisplayFor(modelItem => item.Hang)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Image)
+            <img style="text-align: center";  width="100"; height="100" src="@Url.Content(item.Image) "/>
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Description)
