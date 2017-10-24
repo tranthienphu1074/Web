@@ -59,5 +59,79 @@ namespace Web.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public ActionResult Them(DanhMuc danhMuc)
+        {
+            data.DanhMucs.InsertOnSubmit(danhMuc);
+            data.SubmitChanges();
+            return RedirectToAction("SanPham");
+        }
+
+        public ActionResult ChiTiet(int id)
+        {
+            DanhMuc danhMuc = data.DanhMucs.SingleOrDefault(n => n.ID == id);
+            ViewBag.id = danhMuc.ID;
+            if(danhMuc == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            return View(danhMuc);
+        }
+
+        public ActionResult Xoa(int id)
+        {
+            DanhMuc danhMuc = data.DanhMucs.SingleOrDefault(n => n.ID == id);
+            ViewBag.ID = danhMuc.ID;
+            if(danhMuc == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            return View(danhMuc);
+        }
+
+        [HttpPost, ActionName("Xoa")]
+        public ActionResult Xacnhanxoa(int id)
+        {
+            DanhMuc danhMuc = data.DanhMucs.SingleOrDefault(n => n.ID == id);
+            ViewBag.ID = danhMuc.ID;
+            if(danhMuc == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            data.DanhMucs.DeleteOnSubmit(danhMuc);
+            data.SubmitChanges();
+            return RedirectToAction("SanPham");
+        }
+
+        [HttpGet]
+        public ActionResult Sua(int id)
+        {
+            DanhMuc danhMuc = data.DanhMucs.SingleOrDefault(n => n.ID == id);
+            if(danhMuc == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            return View(danhMuc);
+        }
+
+        [HttpPost, ActionName("Sua")]
+        public ActionResult Xacnhansua(int id)
+        {
+            DanhMuc danhMuc = data.DanhMucs.SingleOrDefault(n => n.ID == id);
+            ViewBag.ID = danhMuc.ID;
+            if (danhMuc == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            UpdateModel(danhMuc);
+            data.SubmitChanges();
+            return RedirectToAction("SanPham");
+        }
     }
 }

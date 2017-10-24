@@ -1,0 +1,72 @@
+﻿@model Web.Models.DanhMuc
+
+@{
+    ViewBag.Title = "Xoa";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Xoa</h2>
+
+<h3>Bạn có chắc muốn xóa sản phẩm này?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenSanPham)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenSanPham)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GiaTien)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiaTien)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Image)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayCapNhat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayCapNhat)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            @Html.ActionLink("quay về quản lý sản phẩm", "SanPham")
+        </div>
+    }
+</div>

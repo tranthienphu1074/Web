@@ -101,7 +101,7 @@ namespace Web.Controllers
                 TaiKhoan tk = db.TaiKhoans.SingleOrDefault(n => n.TaiKhoan1 == tendn && n.MatKhau == matkhau);
                 if (tk != null)
                 {
-                    //ViewBag.ThongBao = "Đăng nhập thành công";
+                    ViewBag.ThongBao = "Đăng nhập thành công";
                     Session["Taikhoan"] = tk;
                     return RedirectToAction("Index", "LaptopStore");
                 }

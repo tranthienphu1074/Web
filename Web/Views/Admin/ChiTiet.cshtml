@@ -1,0 +1,67 @@
+﻿@model Web.Models.DanhMuc
+
+@{
+    ViewBag.Title = "ChiTiet";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>ChiTiet</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenSanPham)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenSanPham)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GiaTien)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiaTien)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Image)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayCapNhat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayCapNhat)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "Sua", new { id = Model.ID }) |
+    @Html.ActionLink("Xóa","Xoa", new { id = Model.ID})
+    @Html.ActionLink("về trang quản lý sản phẩm", "Sanpham")
+</p>

@@ -17,7 +17,7 @@ namespace Web.Controllers
         // GET: LaptopStore
         public ActionResult Index()
         {
-            var laptopmoi = Laylaptopmoi(12);
+            var laptopmoi = Laylaptopmoi(100);
             return View(laptopmoi);
         }
 
