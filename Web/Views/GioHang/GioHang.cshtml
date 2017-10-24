@@ -23,7 +23,7 @@
         <tr style="text-align:center; font-weight:bold">
             <td> @item.iMasanpham </td>
             <td> @item.iTensanpham</td>
-            <td><img src="@item.iAnhbia"></td>
+            <td><img src="@item.iAnhbia" width="30%"></td>
             @using (Html.BeginForm("CapnhatGiohang", "Giohang", new { @iMaSp = item.iMasanpham }))
             {
                 <td>
